@@ -6,8 +6,8 @@
     <title>CTC: Crack The Code - Bandipur Event</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(180deg, #1d53e9, #000000, #2706d5, #2c28ec);
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(180deg, #1d53e9, #000000, #000000, #000000);
             color: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -19,17 +19,20 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
+            position: relative;
+            top: -1190px;
         }
+
         header {
             text-align: center;
             padding: 50px 0;
-            background-image: url('https://source.unsplash.com/random/1600x400');
+            background-image: url('https://source.unsplash.com/random/1600x400?coding');
             background-size: cover;
             background-position: center;
             color: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
+
         header h1 {
             font-size: 3em;
             color: #FF9800;
@@ -39,51 +42,72 @@
             transform: scale(1.1);
             color: #FF5722;
         }
+
         header p {
             font-size: 1.3em;
             color: #eee;
             margin-top: 10px;
         }
+
+        .quote {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #FF9800;
+        }
+
         .section {
             padding: 30px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #1e1e1e, #333);
+            background: linear-gradient(135deg, #1e1e1e, #333, #2706d5);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
+
         .section:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
+
         .section h2 {
             color: #FF9800;
             font-size: 1.8em;
             border-bottom: 2px solid #FF9800;
             padding-bottom: 10px;
-            margin-bottom: 20px;
         }
+
         .list-container {
             display: grid;
             gap: 15px;
         }
+
         .list-item {
             display: flex;
             align-items: center;
-            background-color: #333;
+            background: linear-gradient(135deg, #1e1e1e, #2c28ec);
             padding: 15px;
             border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
+            color: #FF9800;
+            font-weight: bold;
         }
+
         .list-item:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
         }
+
         .list-item::before {
-            content: "⭐";
+            content: "💡";
             font-size: 1.5em;
             color: #FF9800;
             margin-right: 10px;
         }
+
         .cta-button {
             display: block;
             text-align: center;
@@ -99,10 +123,12 @@
             text-decoration: none;
             transition: background-color 0.3s, transform 0.3s;
         }
+
         .cta-button:hover {
             background-color: #FF5722;
             transform: scale(1.1);
         }
+
         @media (min-width: 768px) {
             .container {
                 grid-template-columns: repeat(2, 1fr);
@@ -111,6 +137,7 @@
                 grid-column: span 2;
             }
         }
+      
         .poster{
             z-index: 1;
             top: -1200px;
@@ -135,57 +162,140 @@
     <div class="poster">
         <img src="image.png" alt="">
     </div>
-    
     <div class="container">
         <!-- Header Section -->
         <header>
             <h1>CTC: Crack The Code</h1>
             <p>Unleash Your Coding Potential in a two-phase event combining a Coding Contest and Hackathon.</p>
+            <div class="quote">“Code is like humor. When you have to explain it, it’s bad.” - Cory House</div>
         </header>
 
         <!-- Event Details Section -->
         <section class="section">
-            <h2>Event Details</h2>
-            <p>CTC: Crack The Code is designed to promote a coding culture, skill development, and real-world problem-solving. Participate in a two-phase event with:</p>
+            <h2>Event Details 🚀</h2>
             <div class="list-container">
-                <div class="list-item"><strong>Elimination Round:</strong> Coding Contest hosted by GeeksforGeeks.</div>
-                <div class="list-item"><strong>Final Round:</strong> Hackathon hosted by CodeChef.</div>
+                <div class="list-item">Phase 1: Coding Contest hosted by GeeksforGeeks.</div>
+                <div class="list-item">Phase 2: Hackathon hosted by CodeChef.</div>
             </div>
         </section>
 
         <!-- Evaluation Criteria Section -->
         <section class="section">
-            <h2>Evaluation Criteria</h2>
+            <h2>Evaluation Criteria 🎯</h2>
             <div class="list-container">
-                <div class="list-item"><strong>Problem-Solving Skills:</strong> Accuracy, efficiency, and optimization of solutions.</div>
-                <div class="list-item"><strong>Innovation:</strong> Creativity and originality, especially in the hackathon round.</div>
-                <div class="list-item"><strong>Code Quality:</strong> Readability, structure, and maintainability.</div>
-                <div class="list-item"><strong>Collaboration & Presentation:</strong> Effective communication and presentation of solutions.</div>
+                <div class="list-item">Problem-Solving Skills: Precision & Efficiency.</div>
+                <div class="list-item">Innovation: Creativity in hackathon solutions.</div>
+                <div class="list-item">Code Quality: Clear, maintainable code.</div>
+                <div class="list-item">Teamwork: Communication and collaboration.</div>
             </div>
         </section>
 
         <!-- Certifications & Prizes Section -->
         <section class="section">
-            <h2>Certifications & Prizes</h2>
+            <h2>Certifications & Prizes 🏆</h2>
             <div class="list-container">
-                <div class="list-item"><strong>Certificates:</strong> Participation, Winner, and Excellence certificates for outstanding performances.</div>
-                <div class="list-item"><strong>GeeksforGeeks:</strong> Rs. 2000 discount coupon for winners; Rs. 300 for all participants. Tech gadgets for top 3 and T-shirts for next 7 performers.</div>
-                <div class="list-item"><strong>CodeChef:</strong> Pro Subscription for the winner; 40% discount for 2nd and 3rd places; 30% discount for all participants.</div>
+                <div class="list-item">Certificates: Participation, Excellence, Winner.</div>
+                <div class="list-item">GeeksforGeeks Coupons & Gadgets.</div>
+                <div class="list-item">CodeChef Subscriptions & Discounts.</div>
             </div>
         </section>
 
         <!-- Partners & Sponsors Section -->
         <section class="section">
-            <h2>Our Partners & Sponsors</h2>
+            <h2>Our Partners & Sponsors 💼</h2>
             <div class="list-container">
-                <div class="list-item"><strong>GeeksforGeeks:</strong> Platform partner for Elimination Round.</div>
-                <div class="list-item"><strong>CodeChef:</strong> Platform partner for Final Round, with marketing and social media collaboration.</div>
+                <div class="list-item">GeeksforGeeks: Coding Partner.</div>
+                <div class="list-item">CodeChef: Hackathon Partner.</div>
             </div>
         </section>
 
         <!-- Call to Action -->
         <a href="#" class="cta-button">Register Now</a>
     </div>
-    <script src="starfield.js"></script>
+    </div>
+    <script>
+        const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+const stars = [];
+const starCount = 10000;
+let speed = 1;
+
+function initCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = 1500;
+  if (stars.length === 0) {
+    createStars();
+  } else {
+    for (let i = 0; i < starCount; i++) {
+      stars[i].x = canvas.width / 2 + (Math.random() - 1) * canvas.width; // Spread horizontally
+      stars[i].y = Math.random() * canvas.height;
+      stars[i].z = Math.random() * canvas.width; // Random depth
+    }
+  }
+  setSpeedBasedOnScreenSize();
+}
+
+function createStars() {
+  for (let i = 0; i < starCount; i++) {
+    stars.push({
+      x: canvas.width / 2 + (Math.random() - 0.5) * canvas.width, // Spread horizontally
+      y: Math.random() * canvas.height,
+      z: Math.random() * canvas.width,
+      brightness: Math.random() * 0.8 + 0.2,
+      size: Math.random() * 0.1 + 1,
+      color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
+    });
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < starCount; i++) {
+    let star = stars[i];
+    star.z -= speed;
+
+    // Reset position when star goes off-screen
+    if (star.z <= 0) {
+      star.z = canvas.width;
+      star.x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
+      star.y = Math.random() * canvas.height;
+      star.brightness = Math.random() * 0.8 + 0.2;
+      star.size = Math.random() * 0.7 + 0.6;
+      star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+    }
+
+    // Calculate position based on depth
+    let k = 1 - star.z / canvas.width;
+    let scale = k * k * k;
+    let x = (star.x - canvas.width / 2) * scale + canvas.width / 2;
+    let y = (star.y - canvas.height / 2) * scale + canvas.height / 2;
+    let r = star.size * scale;
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = star.color;
+    ctx.fill();
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function setSpeedBasedOnScreenSize() {
+  if (window.innerWidth >= 1200) {
+    speed = 2;
+  } else if (window.innerWidth >= 800) {
+    speed = 1.5;
+  } else if (window.innerWidth >= 600) {
+    speed = 1;
+  } else {
+    speed = 0.5;
+  }
+}
+
+window.addEventListener('resize', initCanvas);
+initCanvas();
+animate();
+    </script>
 </body>
 </html>

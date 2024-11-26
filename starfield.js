@@ -26,7 +26,7 @@ function createStars() {
       y: Math.random() * canvas.height,
       z: Math.random() * canvas.width,
       brightness: Math.random() * 0.8 + 0.2,
-      size: Math.random() * 0.1 + 0.9,
+      size: Math.random() * 0.1 + 1,
       color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
     });
   }
