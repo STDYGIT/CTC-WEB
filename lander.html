@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTC: Crack The Code - Bandipur Event</title>
+    <link rel="shortcut icon" href="image copy.png" type="image/x-icon">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -11,21 +13,33 @@
             color: #f5f5f5;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
-            position: relative;
-            top: -1190px;
+            padding: 260px 25px 30px 25px;
+
         }
 
         header {
+            width: 100%;
             text-align: center;
-            padding: 50px 0;
+            padding: 30px;
             background-image: url('https://source.unsplash.com/random/1600x400?coding');
             background-size: cover;
             background-position: center;
@@ -34,66 +48,86 @@
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             color: #FF9800;
-            transition: transform 0.3s, color 0.3s;
-        }
-        header h1:hover {
-            transform: scale(1.1);
-            color: #FF5722;
         }
 
         header p {
-            font-size: 1.3em;
-            color: #eee;
+            font-size: 1.2rem;
             margin-top: 10px;
         }
 
         .quote {
-            text-align: center;
-            margin-top: 20px;
             font-style: italic;
             color: #FF9800;
+            margin-top: 10px;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 1200px;
+            /* margin: auto; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            box-shadow: 0px 0px 20px 0px whitesmoke;
+            transition: all 0.3s ease-in-out 0.1s;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .poster:hover {
+            transform: scale(1.01);
+            opacity: 1;
+            box-shadow: 0px 0px 20px 3px whitesmoke;
+            cursor: pointer;
+        }
+
+        .poster img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
         }
 
         .section {
-            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
             border-radius: 12px;
             background: linear-gradient(135deg, #1e1e1e, #333, #2706d5);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-        }
-
-        .section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            gap: 10px;
+            align-items: center;
+            text-align: center;
+            opacity: 0.8;
+            text-align: center;
+            transition: all 0.3s ease-in-out 0.1s;
         }
 
         .section h2 {
             color: #FF9800;
-            font-size: 1.8em;
-            border-bottom: 2px solid #FF9800;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .list-container {
-            display: grid;
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
         }
 
         .list-item {
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #1e1e1e, #2c28ec);
             padding: 15px;
             border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(135deg, #1e1e1e, #2c28ec);
             color: #FF9800;
             font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .list-item:hover {
@@ -101,66 +135,171 @@
             box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
         }
 
-        .list-item::before {
-            content: "💡";
-            font-size: 1.5em;
-            color: #FF9800;
-            margin-right: 10px;
-        }
-
         .cta-button {
-            display: block;
             text-align: center;
-            padding: 15px;
-            margin: 50px auto;
-            width: 250px;
-            background-color: #FF9800;
-            color: #121212;
+            padding: 15px 30px;
+            margin: 20px 0;
+            background: linear-gradient(90deg, #1d53e9, #000000, #000000, #1d53e9);
+            color: #ffffff;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.2rem;
             border: none;
             border-radius: 12px;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: all 0.1s ease-in-out 0.2s;
         }
 
         .cta-button:hover {
-            background-color: #FF5722;
             transform: scale(1.1);
         }
 
-        @media (min-width: 768px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
             }
-            header, .cta-button {
-                grid-column: span 2;
-            }
-        }
-      
-        .poster{
-            z-index: 1;
-            top: -1200px;
-            position: relative;
-            opacity: 0.7;
-            height: inherit;
-            width: inherit;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
+            header p {
+                font-size: 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                width: 80%;
+            }
+            .poster{
+                margin: 350px 0px 0px 20px;
+                width: 90%;
+            }
         }
-        .poster img{
-            height: 400px;
-            width: 1200px;
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+            }
+        }
+
+        .scroll-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -30px;
+            position: relative;
+            top: 250px;
+            margin-bottom: 50px;
+            opacity: 0.4;
+            transition: all 0.1s ease-in-out 0.2s;
+        }
+
+        .scroll-button-container:hover {
+            opacity: 1;
+        }
+
+        .scroll-button {
+            position: relative;
+            margin: -50px auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(180deg, #1d53e9, #000000, #000000, #000000);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: float 2s infinite ease-in-out;
+            opacity: 1;
+        }
+
+        .scroll-button:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.8);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            /* Ensures images stack on smaller screens */
+        }
+
+        .image-section img {
+            width: 200px;
+            /* Adjust size */
+            height: auto;
+            border-radius: 12px;
+            /* Optional: Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            /* Add some shadow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .image-section img {
+                width: 150px;
+                /* Smaller images for narrow screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-section img {
+                width: 120px;
+                /* Further scale down for small devices */
+            }
+        }
+
+        .section:hover {
+            opacity: 1;
         }
     </style>
+
 </head>
+
 <body>
     <canvas id="starfield" style="height: 100;"></canvas>
     <div class="poster">
-        <img src="image.png" alt="">
+        <img id="scrollDownButton" src="image.png" alt="">
+    </div>
+    <div class="scroll-button-container">
+        <button id="scrollDownButton1" class="scroll-button">🚀</button>
     </div>
     <div class="container">
         <!-- Header Section -->
@@ -171,7 +310,7 @@
         </header>
 
         <!-- Event Details Section -->
-        <section class="section">
+        <section class="section op1">
             <h2>Event Details 🚀</h2>
             <div class="list-container">
                 <div class="list-item">Phase 1: Coding Contest hosted by GeeksforGeeks.</div>
@@ -180,7 +319,7 @@
         </section>
 
         <!-- Evaluation Criteria Section -->
-        <section class="section">
+        <section class="section op2">
             <h2>Evaluation Criteria 🎯</h2>
             <div class="list-container">
                 <div class="list-item">Problem-Solving Skills: Precision & Efficiency.</div>
@@ -191,7 +330,7 @@
         </section>
 
         <!-- Certifications & Prizes Section -->
-        <section class="section">
+        <section class="section op3">
             <h2>Certifications & Prizes 🏆</h2>
             <div class="list-container">
                 <div class="list-item">Certificates: Participation, Excellence, Winner.</div>
@@ -201,11 +340,18 @@
         </section>
 
         <!-- Partners & Sponsors Section -->
-        <section class="section">
+        <section class="section op4" style="opacity: 1;">
             <h2>Our Partners & Sponsors 💼</h2>
-            <div class="list-container">
+            <!-- <div class="list-container">
                 <div class="list-item">GeeksforGeeks: Coding Partner.</div>
                 <div class="list-item">CodeChef: Hackathon Partner.</div>
+            </div> -->
+            <!-- New Image Section -->
+            <div class="image-section" style="opacity: 1;">
+                <a href="https://www.geeksforgeeks.org/events/rec/gfg-weekly-coding-contest" target="_blank"><img src="codecontest.png"
+                        alt="GeeksforGeeks Logo"></a>
+                <a href="https://www.codechef.com/" target="_blank"> <img src="images.png" alt="CodeChef Logo"></a>
+
             </div>
         </section>
 
@@ -213,89 +359,107 @@
         <a href="#" class="cta-button">Register Now</a>
     </div>
     </div>
-    <script>
-        const canvas = document.getElementById('starfield');
-const ctx = canvas.getContext('2d');
-const stars = [];
-const starCount = 10000;
-let speed = 1;
-
-function initCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = 1500;
-  if (stars.length === 0) {
-    createStars();
-  } else {
-    for (let i = 0; i < starCount; i++) {
-      stars[i].x = canvas.width / 2 + (Math.random() - 1) * canvas.width; // Spread horizontally
-      stars[i].y = Math.random() * canvas.height;
-      stars[i].z = Math.random() * canvas.width; // Random depth
-    }
-  }
-  setSpeedBasedOnScreenSize();
-}
-
-function createStars() {
-  for (let i = 0; i < starCount; i++) {
-    stars.push({
-      x: canvas.width / 2 + (Math.random() - 0.5) * canvas.width, // Spread horizontally
-      y: Math.random() * canvas.height,
-      z: Math.random() * canvas.width,
-      brightness: Math.random() * 0.8 + 0.2,
-      size: Math.random() * 0.1 + 1,
-      color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
-    });
-  }
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let i = 0; i < starCount; i++) {
-    let star = stars[i];
-    star.z -= speed;
-
-    // Reset position when star goes off-screen
-    if (star.z <= 0) {
-      star.z = canvas.width;
-      star.x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
-      star.y = Math.random() * canvas.height;
-      star.brightness = Math.random() * 0.8 + 0.2;
-      star.size = Math.random() * 0.7 + 0.6;
-      star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
-    }
-
-    // Calculate position based on depth
-    let k = 1 - star.z / canvas.width;
-    let scale = k * k * k;
-    let x = (star.x - canvas.width / 2) * scale + canvas.width / 2;
-    let y = (star.y - canvas.height / 2) * scale + canvas.height / 2;
-    let r = star.size * scale;
-
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.fillStyle = star.color;
-    ctx.fill();
-  }
-
-  requestAnimationFrame(animate);
-}
-
-function setSpeedBasedOnScreenSize() {
-  if (window.innerWidth >= 1200) {
-    speed = 2;
-  } else if (window.innerWidth >= 800) {
-    speed = 1.5;
-  } else if (window.innerWidth >= 600) {
-    speed = 1;
-  } else {
-    speed = 0.5;
-  }
-}
-
-window.addEventListener('resize', initCanvas);
-initCanvas();
-animate();
-    </script>
 </body>
+<script>
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let starCount; // Make starCount dynamic
+    let speed = 1;
+
+    // Function to set star count based on screen size
+    function getStarCount() {
+        if (window.innerWidth >= 1200) return 5000;
+        if (window.innerWidth >= 800) return 2000;
+        if (window.innerWidth >= 600) return 1000;
+        return 1500; // Fewer stars for small screens
+    }
+
+    // Initialize canvas
+    function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        starCount = getStarCount(); // Dynamically set star count
+        stars = []; // Reset stars array
+        createStars(); // Create stars with the new count
+        setSpeedBasedOnScreenSize(); // Adjust speed
+    }
+
+    // Create stars
+    function createStars() {
+        for (let i = 0; i < starCount; i++) {
+            stars.push({
+                x: canvas.width / 2 + (Math.random() - 0.5) * canvas.width, // Spread horizontally
+                y: Math.random() * canvas.height,
+                z: Math.random() * canvas.width,
+                brightness: Math.random() * 0.8 + 0.2,
+                size: Math.random() * 0.6 + 1,
+                color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
+            });
+        }
+    }
+
+    // Animate stars
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < starCount; i++) {
+            let star = stars[i];
+            star.z -= speed;
+
+            // Reset position when star goes off-screen
+            if (star.z <= 0) {
+                star.z = canvas.width;
+                star.x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
+                star.y = Math.random() * canvas.height;
+                star.brightness = Math.random() * 0.8 + 0.2;
+                star.size = Math.random() * 2 + 1;
+                star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+            }
+
+            // Calculate position based on depth
+            let k = 1 - star.z / canvas.width;
+            let scale = k * k * k;
+            let x = (star.x - canvas.width / 2) * scale + canvas.width / 2;
+            let y = (star.y - canvas.height / 2) * scale + canvas.height / 2;
+            let r = star.size * scale;
+
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fillStyle = star.color;
+            ctx.fill();
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    // Adjust speed based on screen size
+    function setSpeedBasedOnScreenSize() {
+        if (window.innerWidth >= 1200) {
+            speed = 2;
+        } else if (window.innerWidth >= 800) {
+            speed = 1.5;
+        } else if (window.innerWidth >= 600) {
+            speed = 1;
+        } else {
+            speed = 0.5;
+        }
+    }
+
+    // Resize and reinitialize canvas
+    window.addEventListener('resize', initCanvas);
+
+    // Initial setup
+    initCanvas();
+    animate();
+    document.getElementById('scrollDownButton').addEventListener('click', function () {
+        const container = document.querySelector('.container');
+        container.scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('scrollDownButton1').addEventListener('click', function () {
+        const container = document.querySelector('.container');
+        container.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
 </html>

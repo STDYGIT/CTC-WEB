@@ -1,17 +1,17 @@
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 const stars = [];
-const starCount = 10000;
+const starCount = 7000;
 let speed = 1;
 
 function initCanvas() {
   canvas.width = window.innerWidth;
-  canvas.height = 1500;
+  canvas.height = window.innerHeight;
   if (stars.length === 0) {
     createStars();
   } else {
     for (let i = 0; i < starCount; i++) {
-      stars[i].x = canvas.width / 2 + (Math.random() - 1) * canvas.width; // Spread horizontally
+      stars[i].x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
       stars[i].y = Math.random() * canvas.height;
       stars[i].z = Math.random() * canvas.width; // Random depth
     }
@@ -26,7 +26,7 @@ function createStars() {
       y: Math.random() * canvas.height,
       z: Math.random() * canvas.width,
       brightness: Math.random() * 0.8 + 0.2,
-      size: Math.random() * 0.1 + 1,
+      size: Math.random() * 0.6 + 1,
       color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
     });
   }
@@ -45,7 +45,7 @@ function animate() {
       star.x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
       star.y = Math.random() * canvas.height;
       star.brightness = Math.random() * 0.8 + 0.2;
-      star.size = Math.random() * 0.7 + 0.6;
+      star.size = Math.random() * 2 + 1;
       star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
     }
 
