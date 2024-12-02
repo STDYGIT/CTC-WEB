@@ -9,7 +9,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(180deg, #1d53e9, #000000, #000000, #000000);
+            /* background: linear-gradient(180deg, #1d53e9, #000000, #000000, #000000); */
+            background-color: #fff;
             color: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -33,6 +34,7 @@
             align-items: center;
             gap: 20px;
             padding: 260px 25px 30px 25px;
+            border-radius: 10px;
 
         }
 
@@ -69,10 +71,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0.8;
+            opacity: 1;
             box-shadow: 0px 0px 20px 0px whitesmoke;
             transition: all 0.3s ease-in-out 0.1s;
-            margin: 10px 100px 100px 130px;
+            margin: 10px 100px 100px 100px;
         }
 
         .poster:hover {
@@ -196,7 +198,7 @@
             }
         }
 
-        .scroll-button-container {
+        /* .scroll-button-container {
             display: flex;
             justify-content: center;
             margin-top: -30px;
@@ -209,9 +211,9 @@
 
         .scroll-button-container:hover {
             opacity: 1;
-        }
+        } */
 
-        .scroll-button {
+        /* .scroll-button {
             position: relative;
             margin: -50px auto 20px;
             display: flex;
@@ -235,7 +237,7 @@
         .scroll-button:hover {
             transform: scale(1.2) rotate(10deg);
             box-shadow: 0 6px 20px rgba(255, 87, 34, 0.8);
-        }
+        } */
 
         /* Floating Animation */
         @keyframes float {
@@ -300,12 +302,9 @@
 </head>
 
 <body>
-    <canvas id="starfield" style="height: 100;"></canvas>
+    <!-- <canvas id="starfield" style="height: 100;"></canvas> -->
     <div class="poster">
         <img id="scrollDownButton" src="Header.jpg" alt="">
-    </div>
-    <div class="scroll-button-container">
-        <button id="scrollDownButton1" class="scroll-button">🚀</button>
     </div>
     <div class="container">
         <!-- Header Section -->
@@ -366,106 +365,5 @@
     </div>
     </div>
 </body>
-<script>
-    const canvas = document.getElementById('starfield');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-    let starCount; // Make starCount dynamic
-    let speed = 1;
-
-    // Function to set star count based on screen size
-    function getStarCount() {
-        if (window.innerWidth >= 1200) return 5000;
-        if (window.innerWidth >= 800) return 2000;
-        if (window.innerWidth >= 600) return 1000;
-        return 1500; // Fewer stars for small screens
-    }
-
-    // Initialize canvas
-    function initCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        starCount = getStarCount(); // Dynamically set star count
-        stars = []; // Reset stars array
-        createStars(); // Create stars with the new count
-        setSpeedBasedOnScreenSize(); // Adjust speed
-    }
-
-    // Create stars
-    function createStars() {
-        for (let i = 0; i < starCount; i++) {
-            stars.push({
-                x: canvas.width / 2 + (Math.random() - 0.5) * canvas.width, // Spread horizontally
-                y: Math.random() * canvas.height,
-                z: Math.random() * canvas.width,
-                brightness: Math.random() * 0.8 + 0.2,
-                size: Math.random() * 0.6 + 1,
-                color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
-            });
-        }
-    }
-
-    // Animate stars
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < starCount; i++) {
-            let star = stars[i];
-            star.z -= speed;
-
-            // Reset position when star goes off-screen
-            if (star.z <= 0) {
-                star.z = canvas.width;
-                star.x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width; // Spread horizontally
-                star.y = Math.random() * canvas.height;
-                star.brightness = Math.random() * 0.8 + 0.2;
-                star.size = Math.random() * 2 + 1;
-                star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
-            }
-
-            // Calculate position based on depth
-            let k = 1 - star.z / canvas.width;
-            let scale = k * k * k;
-            let x = (star.x - canvas.width / 2) * scale + canvas.width / 2;
-            let y = (star.y - canvas.height / 2) * scale + canvas.height / 2;
-            let r = star.size * scale;
-
-            ctx.beginPath();
-            ctx.arc(x, y, r, 0, Math.PI * 2);
-            ctx.fillStyle = star.color;
-            ctx.fill();
-        }
-
-        requestAnimationFrame(animate);
-    }
-
-    // Adjust speed based on screen size
-    function setSpeedBasedOnScreenSize() {
-        if (window.innerWidth >= 1200) {
-            speed = 2;
-        } else if (window.innerWidth >= 800) {
-            speed = 1.5;
-        } else if (window.innerWidth >= 600) {
-            speed = 1;
-        } else {
-            speed = 0.5;
-        }
-    }
-
-    // Resize and reinitialize canvas
-    window.addEventListener('resize', initCanvas);
-
-    // Initial setup
-    initCanvas();
-    animate();
-    document.getElementById('scrollDownButton').addEventListener('click', function () {
-        const container = document.querySelector('.container');
-        container.scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('scrollDownButton1').addEventListener('click', function () {
-        const container = document.querySelector('.container');
-        container.scrollIntoView({ behavior: 'smooth' });
-    });
-</script>
 
 </html>

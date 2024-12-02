@@ -27,7 +27,7 @@ function createStars() {
       z: Math.random() * canvas.width,
       brightness: Math.random() * 0.8 + 0.2,
       size: Math.random() * 0.6 + 1,
-      color: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`
+      color: `rgba(0, 0, 0, ${Math.random() * 0.5 + 0.5})` // Black color with variable opacity
     });
   }
 }
@@ -46,7 +46,7 @@ function animate() {
       star.y = Math.random() * canvas.height;
       star.brightness = Math.random() * 0.8 + 0.2;
       star.size = Math.random() * 2 + 1;
-      star.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`;
+      star.color = `rgba(0, 0, 0, ${Math.random() * 0.5 + 0.5})`; // Black color with variable opacity
     }
 
     // Calculate position based on depth

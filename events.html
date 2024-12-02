@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background: #FAEBBB;
+    }
+
+    .block_top {
+        background: #212322;
+        height: 400px;
+        color: #FAEBBB;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 100px;
+        margin-top: 50px;
+        border-radius: 50px;
+        padding: 20px;
+        position: relative;
+    }
+
+    h1 {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    h2 {
+        position: absolute;
+        top: 200px;
+        left: 40px;
+        color: rgb(0, 0, 0);
+    }
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        transform: translateY(-50%);
+        font-weight: 700;
+        font-size: 25px;
+        color: rgb(0, 0, 0);
+    }
+
+    .eve-p {
+        position: absolute;
+        top: 55%;
+        left: 80px;
+        transform: translateY(-50%);
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    .cards {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        margin-bottom: 90px;
+    }
+
+    .custom-card {
+        position: absolute;
+        width: 90%;
+        height: 70vh;
+        background-color: #ffffff;
+        color: #000000;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card2 {
+        top: 40px;
+
+    }
+
+    .opacity {
+        transition: 0.4s ease;
+        opacity: 0.6;
+    }
+
+    .scale {
+        transition: 0.4s ease;
+        width: 95%;
+    }
+
+    /* Media Query for Small Screens */
+    @media (max-width: 500px) {
+        .cards {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            gap: 20px;
+        }
+
+        .custom-card {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+
+        h1, h2, .eve-p {
+            position: static;
+            transform: none;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        p {
+            position: static;
+            font-size: 16px;
+            color: aqua;
+            text-align: center;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- <div class="block_top">
+                    <h1>Events</h1>
+                    <p>
+                        These are the events are coducted by Bandipur house of IITMadras and in collaboration with
+                        codechef and geeksforgeeks
+                    </p>
+
+                </div> -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="cards">
+                    <!-- <ul class="nav">
+                        <li><a href="#card1">
+                                <div class="circle active 1">1</div>
+                            </a></li>
+                        <li><a href="#card2">
+                                <div class="circle 2">2</div>
+                            </a></li>
+                    </ul> -->
+
+                    <div class="custom-card card1" id="1" style=" z-index: 2;">
+                        <h1>01</h1>
+                        <h2>Coding Contest</h2>
+                        <p class="eve-p">
+                            In which there are 4 Coding Problems You have solve in time . This is also an elimination
+                            round</p>
+
+                    </div>
+                    <div class="custom-card card2" id="2" style=" z-index: 3;">
+                        <h1>02</h1>
+                        <h2>Hackathon</h2>
+                        <p class="eve-p" style="left: 30px;">
+                            Shortliested Candidates will participate Hackathon in round . Winners and participates have
+                            Certificates and prizes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <!-- <div class="next_block">
+                    <h1>End content</h1>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script>
+
+    if (window.innerWidth > 500) {
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        //let links = gsap.utils.toArray("nav a");
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".cards",
+                pin: true,
+                pinSpacing: true,
+                start: "top-=120px top", // when the top of the trigger hits the top of the viewport
+                end: "+=2000", // end after scrolling 1000px beyond the start
+                scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+            }
+        });
+        tl.addLabel("card1");
+        tl.to('.card1', {
+            yPercent: 0,
+            opacity: 1
+        })
+
+        tl.from('.card2', {
+            yPercent: 75,
+            opacity: 0,
+        })
+        tl.addLabel("card2");
+        // set the active section based on the direction, and position it part-way through the transition because that's more intuitive
+        tl.add(() => setActiveNav(tl.scrollTrigger.direction > 0 ? 1 : 0), "-=0.15");
+        tl.to('.card1', {
+            scale: 0.95,
+            yPercent: -0.5,
+            opacity: 0.7
+        }, "-=0.3")
+
+        tl.to('.card2', {
+            yPercent: 0,
+            opacity: 1
+        })
+
+        gsap.utils.toArray(".nav a").forEach((a, i) => {
+            a.addEventListener("click", e => {
+                e.preventDefault();
+                let pad = i === 0 ? 0 : tl.scrollTrigger.direction > 0 ? 2 : -2;
+                gsap.to(window, { scrollTo: labelToScroll(tl, "card" + (i + 1)) + pad })
+            });
+        });
+        function labelToScroll(timeline, label) {
+            let st = timeline.scrollTrigger,
+                progress = timeline.labels[label] / timeline.duration();
+            return st.start + (st.end - st.start) * progress;
+        }
+        let circles = gsap.utils.toArray(".nav .circle");
+        function setActiveNav(index) {
+            circles.forEach((circle, i) => circle.classList[i === index ? "add" : "remove"]("active"));
+        }
+    }
+    </script>
+</body>
+</html>

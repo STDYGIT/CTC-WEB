@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked Cards Scroll</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #FAEBBB;
+        }
+
+        .rewards-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sponsor-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 0;
+        }
+
+        .sponsor-card {
+            background: linear-gradient(261deg, #5328f5, #1a4486, #13178d, #397298);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sponsor-card img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .cards-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-card {
+            position: absolute;
+            width: 70%;
+            max-width: 1100px;
+            height: 58vh;
+            background-color: #37d060;
+            color: #FAEBBB;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav .circle {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #FAEBBB;
+            border-radius: 50%;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav .circle.active {
+            background-color: #FAEBBB;
+            color: #213F29;
+        }
+
+        .custom-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: blur(0px);
+            border-radius: 50px;
+            /* Adjust the blur level as needed */
+        }
+
+        .card1::before {
+            background-image: url(Blue\ Futuristic\ Appreciation\ Certificate\ \(1\).png);
+            background-size: 100%;
+        }
+
+        .card2::before {
+            background-image: url(cfcsub.jpeg);
+        }
+
+        .card3::before {
+            background-image: url(WhatsApp\ Image\ 2024-12-02\ at\ 20.12.41.jpeg);
+        }
+
+        .card4::before {
+            background-image: url("C:\\Users\\mahes\\OneDrive\\Pictures\\likes\\download");
+        }
+
+        .certification h4 {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            font-size: 20px;
+            color: #f8f8f8;
+            font-weight: 700;
+        }
+
+        .certification p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="rewards-container">
+        <div class="sponsor-container">
+            <div class="sponsor-card">
+                <h3>GeeksforGeeks</h3>
+                <img src="icons8-geeksforgeeks-100.png" alt="GeeksforGeeks" />
+                <p>Learning platform for programmers</p>
+            </div>
+            <div class="sponsor-card">
+                <h3>CodeChef</h3>
+                <img src="WhatsApp Image 2024-12-02 at 15.06.41.jpeg" alt="CodeChef" />
+                <p>Competitive programming platform</p>
+            </div>
+        </div>
+
+        <div class="cards-section">
+            <ul class="nav">
+                <li>
+                    <div class="circle active" data-card="1">1</div>
+                </li>
+                <li>
+                    <div class="circle" data-card="2">2</div>
+                </li>
+                <li>
+                    <div class="circle" data-card="3">3</div>
+                </li>
+            </ul>
+
+            <div class="custom-card card1" data-card="1">
+                <div class="certification">
+                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                    <p>All participants will receive a certificate of participation from Bandipur.</p>
+                    <h4>Winner Certificate</h4>
+                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                    <h4>Excellence Certificate</h4>
+                    <p>The next seven highest performers will receive certificates of excellence.</p>
+                </div>
+
+            </div>
+            <div class="custom-card card2" data-card="2">
+                <div class="certification">
+                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                    <p>All participants will receive a certificate of participation from Bandipur.</p>
+                    <h4>Winner Certificate</h4>
+                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                    <h4>Excellence Certificate</h4>
+                    <p>The next seven highest performers will receive certificates of excellence.</p>
+                </div>
+            </div>
+            <div class="custom-card card3" data-card="3">
+                <div class="certification">
+                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                    <p>All participants will receive a certificate of participation from Bandipur.</p>
+                    <h4>Winner Certificate</h4>
+                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                    <h4>Excellence Certificate</h4>
+                    <p>The next seven highest performers will receive certificates of excellence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        const cards = document.querySelectorAll('.custom-card');
+        const navCircles = document.querySelectorAll('.nav .circle');
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".cards-section",
+                pin: true,
+                start: "top top",
+                end: "+=2000",
+                scrub: 1,
+            }
+        });
+
+        function animateCards() {
+            tl.addLabel("card1")
+                .to('.card1', {
+                    yPercent: 0,
+                    opacity: 1,
+                    scale: 1
+                })
+                .from('.card2', {
+                    yPercent: 75,
+                    opacity: 0
+                })
+                .addLabel("card2")
+                .to('.card1', {
+                    scale: 0.95,
+                    yPercent: -0.5,
+                    opacity: 0.7
+                })
+                .to('.card2', {
+                    yPercent: 0,
+                    opacity: 1
+                })
+                .from('.card3', {
+                    yPercent: 75,
+                    opacity: 0
+                })
+                .addLabel("card3")
+                .to('.card2', {
+                    scale: 0.98,
+                    yPercent: -0.4,
+                    opacity: 0.7
+                })
+                .to('.card3', {
+                    yPercent: 0,
+                    opacity: 1
+                });
+        }
+
+        function updateNavigation(progress) {
+            const activeIndex = Math.floor(progress * 3);
+            navCircles.forEach((circle, index) => {
+                circle.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+        navCircles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                const cardIndex = parseInt(circle.dataset.card) - 1;
+                const scrollPos = tl.labels[`card${cardIndex + 1}`] / tl.duration() * tl.scrollTrigger.end;
+
+                gsap.to(window, {
+                    scrollTo: tl.scrollTrigger.start + scrollPos,
+                    duration: 1,
+                    ease: 'power2.inOut'
+                });
+            });
+        });
+
+        animateCards();
+
+        tl.scrollTrigger.animation.progress.addEventListener('change', () => {
+            updateNavigation(tl.progress());
+        });
+    </script>
+</body>
+
+</html>
