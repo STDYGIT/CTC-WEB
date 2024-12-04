@@ -9,11 +9,15 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            /* background: linear-gradient(180deg, #1d53e9, #000000, #000000, #000000); */
-            background-color: aqua;
-            color: #f4f4f4;
-            overflow-x: hidden;
+            /* background: linear-gradient(42deg, #1059B4, #CCC4C0, #34CADA, #081C5E); */
+            /* background-color: aqua; */
+            /* background-color: linear-gradient(42deg, #10143C, #339BD3, #1C55CD, #DF9A98) ; */
+            background-image:
+                url(https://pouch.jumpshare.com/preview/3nfqEtPc5Wfqq6Cg7pZfAN8NKNLs9SMO2SIGFmA08Zo-UloN8jPOcapa4xIQYGU4806kK-guX5qlSQUwqxxZeIO_J0ez-JItKD5LjoUQSIU),
+                linear-gradient(100deg, #1847c9, #0e0218, #001055, #000000);
         }
+
+
 
         header {
             width: 100%;
@@ -24,6 +28,7 @@
             background-position: center;
             color: #fff;
             border-radius: 12px;
+            margin: 0 auto;
         }
 
         header h1 {
@@ -46,6 +51,7 @@
             box-shadow: 0px 0px 20px 0px whitesmoke;
             transition: all 0.3s ease-in-out 0.1s;
             margin: 50px 20px 100px 20px;
+            margin: 0 auto;
         }
 
         .poster:hover {
@@ -72,13 +78,15 @@
             header p {
                 font-size: 1rem;
             }
-            .poster{
+
+            .poster {
                 margin: 5px 10px 0px 8px;
                 width: 97%;
             }
         }
+
         @media (max-width:1400px) {
-            .poster{
+            .poster {
                 margin: auto;
             }
         }
@@ -89,6 +97,7 @@
             }
 
         }
+
         /* EVENT STYLES */
 
         .event-cards-container {
@@ -113,7 +122,8 @@
             align-items: flex-start;
             padding: 20px;
             box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
-            opacity: 0; /* Ensure cards are initially invisible */
+            opacity: 0;
+            /* Ensure cards are initially invisible */
             transition: 0.4s ease;
         }
 
@@ -138,6 +148,7 @@
             top: 40px;
             background-color: rgb(136, 116, 213);
         }
+
         .event-card.card1 {
             top: 40px;
             background-color: rgb(136, 116, 213);
@@ -159,12 +170,15 @@
             }
 
             .event-card {
-                position: relative; /* Stack the cards */
+                position: relative;
+                /* Stack the cards */
                 width: 75%;
                 height: auto;
                 padding: 20px;
-                opacity: 1; /* Ensure visible without animation */
-                margin:20px 30px 10px 30px; /* Add spacing */
+                opacity: 1;
+                /* Ensure visible without animation */
+                margin: 20px 30px 10px 30px;
+                /* Add spacing */
             }
         }
 
@@ -307,36 +321,38 @@
         <img id="scrollDownButton" src="Header.jpg" alt="">
     </div>
     <div class="container"></div>
-        <div class="event-cards-container">
-            <div class="event-card card1" id="1" style="z-index: 2;">
-                <h1>01</h1>
-                <h2>Coding Contest</h2>
-                <p>In which there are 4 Coding Problems you need to solve within the given time. This is also an elimination round.</p>
-            </div>
-            <div class="event-card card2" id="2" style="z-index: 3;">
-                <h1>02</h1>
-                <h2>Hackathon</h2>
-                <p>Shortlisted candidates will participate in the hackathon. Winners and participants will receive certificates and prizes.</p>
-            </div>
+    <div class="event-cards-container">
+        <div class="event-card card1" id="1" style="z-index: 2;">
+            <h1>01</h1>
+            <h2>Coding Contest</h2>
+            <p>In which there are 4 Coding Problems you need to solve within the given time. This is also an elimination
+                round.</p>
         </div>
+        <div class="event-card card2" id="2" style="z-index: 3;">
+            <h1>02</h1>
+            <h2>Hackathon</h2>
+            <p>Shortlisted candidates will participate in the hackathon. Winners and participants will receive
+                certificates and prizes.</p>
+        </div>
+    </div>
     </div>
     <!-- rewards -->
     <div class="rewards-container"></div>
-        <div class="sponsor-container">
-            <div class="sponsor-card">
-                <h3>GeeksforGeeks</h3>
-                <img src="icons8-geeksforgeeks-100.png" alt="GeeksforGeeks" />
-                <p>Learning platform for programmers</p>
-            </div>
-            <div class="sponsor-card">
-                <h3>CodeChef</h3>
-                <img src="WhatsApp Image 2024-12-02 at 15.06.41.jpeg" alt="CodeChef" />
-                <p>Competitive programming platform</p>
-            </div>
+    <div class="sponsor-container">
+        <div class="sponsor-card">
+            <h3>GeeksforGeeks</h3>
+            <img src="icons8-geeksforgeeks-100.png" alt="GeeksforGeeks" />
+            <p>Learning platform for programmers</p>
         </div>
+        <div class="sponsor-card">
+            <h3>CodeChef</h3>
+            <img src="WhatsApp Image 2024-12-02 at 15.06.41.jpeg" alt="CodeChef" />
+            <p>Competitive programming platform</p>
+        </div>
+    </div>
 
-        <div class="cards-section">
-            <!-- <ul class="nav">
+    <div class="cards-section">
+        <!-- <ul class="nav">
                 <li>
                     <div class="circle active" data-card="1">1</div>
                 </li>
@@ -348,38 +364,38 @@
                 </li>
             </ul> -->
 
-            <div class="custom-card card1" data-card="1">
-                <div class="certification">
-                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
-                    <p>All participants will receive a certificate of participation from Bandipur.</p>
-                    <h4>Winner Certificate</h4>
-                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
-                    <h4>Excellence Certificate</h4>
-                    <p>The next seven highest performers will receive certificates of excellence.</p>
-                </div>
+        <div class="custom-card card1" data-card="1">
+            <div class="certification">
+                <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                <p>All participants will receive a certificate of participation from Bandipur.</p>
+                <h4>Winner Certificate</h4>
+                <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                <h4>Excellence Certificate</h4>
+                <p>The next seven highest performers will receive certificates of excellence.</p>
+            </div>
 
-            </div>
-            <div class="custom-card card2" data-card="2">
-                <div class="certification">
-                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
-                    <p>All participants will receive a certificate of participation from Bandipur.</p>
-                    <h4>Winner Certificate</h4>
-                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
-                    <h4>Excellence Certificate</h4>
-                    <p>The next seven highest performers will receive certificates of excellence.</p>
-                </div>
-            </div>
-            <div class="custom-card card3" data-card="3">
-                <div class="certification">
-                    <h4 style="margin-top: 100px;">Participation Certificate</h4>
-                    <p>All participants will receive a certificate of participation from Bandipur.</p>
-                    <h4>Winner Certificate</h4>
-                    <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
-                    <h4>Excellence Certificate</h4>
-                    <p>The next seven highest performers will receive certificates of excellence.</p>
-                </div>
+        </div>
+        <div class="custom-card card2" data-card="2">
+            <div class="certification">
+                <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                <p>All participants will receive a certificate of participation from Bandipur.</p>
+                <h4>Winner Certificate</h4>
+                <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                <h4>Excellence Certificate</h4>
+                <p>The next seven highest performers will receive certificates of excellence.</p>
             </div>
         </div>
+        <div class="custom-card card3" data-card="3">
+            <div class="certification">
+                <h4 style="margin-top: 100px;">Participation Certificate</h4>
+                <p>All participants will receive a certificate of participation from Bandipur.</p>
+                <h4>Winner Certificate</h4>
+                <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+                <h4>Excellence Certificate</h4>
+                <p>The next seven highest performers will receive certificates of excellence.</p>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -403,10 +419,10 @@
             // Card 1 Animation
             tl.addLabel("card1");
             tl.to('.card1', { yPercent: 0, opacity: 1 }); // Bring card 1 fully into view
-            tl.to('.card1', { scale:1, yPercent: -1, opacity: 1 }, "-=0.3"); // Shrink and fade card 1
+            tl.to('.card1', { scale: 1, yPercent: -1, opacity: 1 }, "-=0.3"); // Shrink and fade card 1
 
             // Card 2 Animation
-            tl.fromTo('.card2', 
+            tl.fromTo('.card2',
                 { yPercent: 85, opacity: 0 }, // Initial position and opacity for card 2
                 { yPercent: 5, opacity: 1 }   // Bring card 2 fully into view
             );
